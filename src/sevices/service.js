@@ -1,17 +1,20 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
-const baseURL = "http://127.0.0.1:5000";
+export const BASE_URL = 'http://127.0.0.1:5000';
 
 function Upload() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/upload`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/upload`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -21,16 +24,18 @@ function Upload() {
   );
 }
 
-
 function Populate() {
   const [post, setPost] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/populate`).then((response) => {
-      setPost(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/populate`)
+      .then((response) => {
+        setPost(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
   return (
     <div>
@@ -39,16 +44,18 @@ function Populate() {
   );
 }
 
-
 function Install() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/install`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/install`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -62,11 +69,14 @@ function Start() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/start`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/start`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -80,11 +90,14 @@ function Stop() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/stop`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/stop`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -98,11 +111,14 @@ function Uninstall() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/uninstall`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/uninstall`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -116,11 +132,14 @@ function Updateconfig() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/update_config`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/update_config`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -134,11 +153,14 @@ function Updatepem() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/update_pem`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/update_pem`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -152,11 +174,14 @@ function Status() {
   const [term, setTerm] = React.useState('');
 
   React.useEffect(() => {
-    axios.get(`${baseURL}/status`).then((response) => {
-      setTerm(response.data);
-    }).catch(error => {
-     console.log(error.message);
-    });
+    axios
+      .get(`${BASE_URL}/status`)
+      .then((response) => {
+        setTerm(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
@@ -167,10 +192,10 @@ function Status() {
 }
 
 function Service() {
-  return(
+  return (
     <div>
       <Install />
-      <Populate/>
+      <Populate />
       <Upload />
       <Start />
       <Stop />

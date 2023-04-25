@@ -1,33 +1,32 @@
-import "./Populate.css";
+import './Populate.css';
 
 export const Populate = ({ closeModal }) => {
-
   return (
-    <div className="populate-background">
-      <div className="populate">
-        <p className="title">Populate</p>
-        <div className="form">
-          <label className="formText">Master Ip</label>
-          <div className="inputText">
-            <input className="input" type="text" />
+    <div className='populate__overlay'>
+      <div className='populate'>
+        <p className='title'>Populate</p>
+        <div className='populate__form'>
+          <div className='form-group text-nowrap'>
+            <label className='text-left'>Master IP</label>
+            <input type='text' className='form-control' />
           </div>
-          <label className="formText">OS Username</label>
-          <div className="inputText">
-            <input className="input" type="text" />
+          <div className='form-group text-nowrap'>
+            <label className='text-left'>OS Username</label>
+            <input type='text' className='form-control' />
           </div>
-          <label className="formText">OS Password</label>
-          <div className="inputText">
-            <input className="input" type="password" />
+          <div className='form-group text-nowrap'>
+            <label className='text-left'>Os Password </label>
+            <input type='text' className='form-control' />
           </div>
-          <div className="btn-populate">
+          <div className='btn-populate'>
             <button
-              type="button"
-              className="btn btn-outline-primary"
+              type='button'
+              className='btn btn-outline-primary'
               onClick={() => closeModal(false)}
             >
               Cancel
             </button>
-            <button type="button" className="btn btn-primary">
+            <button type='button' className='btn btn-primary'>
               Populate
             </button>
           </div>

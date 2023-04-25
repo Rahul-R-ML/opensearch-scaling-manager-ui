@@ -1,17 +1,14 @@
-.main-container {
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  margin-top: 40px;
-  font-size: 30px;
-}
-
 .container {
-  margin: 5% 0 0 32%;
-  width: 35%;
-  height: 350px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #fdfdfd;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,76 +1,50 @@
-.topbar {
-  display: flex;
-  flex-direction: row;
-}
-
-.text {
-  margin-left: 7%;
-}
-
-.deleteIcon {
-  margin-left: 70%;
-  margin-top: 21px;
-}
-
-.title {
-  /* text-align: center; */
-  margin-left: 2%;
-}
-
-.form {
-  margin-left: 10%;
-  margin-top: 10%;
-}
-
-.formText {
-  margin-bottom: 10px;
-}
-
-.inputText {
-  margin-bottom: 5px;
-}
-
-.input {
-  width: 90%;
-}
-
-.btn-populate {
-  margin: 60px 0 0 100px;
-}
-
-.btn-populate > .btn {
-  /* margin-right: 15px; */
-  margin-left: 10px;
-  font-size: 12px;
-  border-radius: 4px;
-}
-
-.title{
-  text-align: center;
-}
-
 .populate {
   padding: 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: white;
-  width: 400px;
+  width: 500px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 15px;
   height: 450px;
   position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%) ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 99;
 }
 
-.populate-background{
-    top:0;
-    left: 0;
-    background-color: rgba(128, 128, 128, 0.479);
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
+.populate__overlay {
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.644);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.title {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  padding: 0;
+  text-align: left;
+  padding-top: 1rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: 450px;
+  margin: 20px;
+  gap: 5px;
+}
+.form-group label {
+  align-self: flex-start;
 }
