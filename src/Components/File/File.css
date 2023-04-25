@@ -29,11 +29,16 @@ p {
 
 .playimg {
   margin: 25px 0 0 180px;
-  width: 20%;
+  height: 50px;
+  width: 50px;
+  color: green;
+  font-size: 48;
 }
+
 
 .playtext {
   margin-left: 42%;
+  margin-top: 60px;
 }
 
 .btn {

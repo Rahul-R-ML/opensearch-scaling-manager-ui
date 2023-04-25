@@ -1,5 +1,8 @@
 .container {
-  margin: 10% 0 0 30%;
+  text-align: center;
+  margin: 0% 0 0 40%;
+  /* margin-top: 40px;
+  margin-left: 80px; */
   width: 35%;
   height: 350px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -9,7 +12,7 @@
   background-color: #fdfdfd;
 }
 
-.container .text {
+.container{
   margin-top: 30px;
   margin-left: 110px;
 }
@@ -17,4 +20,12 @@
 .uploadimg {
   margin: 50px 0 0 130px;
   width: 40%;
+}
+
+.text{
+  margin: auto;
+}
+
+img{
+  cursor: pointer;
 }
