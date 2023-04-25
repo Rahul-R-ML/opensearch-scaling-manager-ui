@@ -1,13 +1,4 @@
-/* 
-
-
-
-.loadingimg{
-  margin: 50px 0 0 140px;
-  width: 40%;
-}
-
-.playComp {
+.container {
   margin: 10% 0 0 30%;
   width: 35%;
   height: 350px;
@@ -15,15 +6,15 @@
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
 
-
-p{
-  margin: 25px 0 0 235px;
+.container .text {
+  margin-top: 30px;
+  margin-left: 110px;
 }
 
-.modalbackground{
-  width:1000px;
+.uploadimg {
+  margin: 50px 0 0 130px;
+  width: 40%;
 }
- */

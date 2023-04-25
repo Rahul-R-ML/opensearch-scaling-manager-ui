@@ -1,0 +1,43 @@
+.container {
+  margin: 10% 0 0 30%;
+  width: 35%;
+  height: 350px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfdfd;
+}
+
+.filename {
+  margin-left: 10px;
+}
+
+.deleteIcon {
+  margin-left: 330px;
+  margin-top: 25px;
+}
+
+p {
+  margin: 25px 0 0 235px;
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.playimg {
+  margin: 25px 0 0 180px;
+  width: 20%;
+}
+
+.playtext {
+  margin-left: 42%;
+}
+
+.btn {
+  margin: 20px 0 0 50px;
+  width: 32%;
+  font-size: 12px;
+}
