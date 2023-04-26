@@ -12,7 +12,7 @@ export async function Upload(props) {
   });
 }
 
-export async function populate(props) {
+export async function Populatedata(props) {
   try {
     await axios.post(`${BASE_URL}/populate`, props.formData, {
       headers: {

@@ -21,7 +21,7 @@ export const File = () => {
     <div className='file__wrapper'>
       <div className='file__wrapper-topbar'>
         <p>&#60;&#60;FileName&#62;&#62;</p>
-        <div onClick={handleUninstall}>
+        <div onClick={Uninstall}>
           <DeleteIcon className='file__wrapper_delete' />
         </div>
       </div>
@@ -44,7 +44,7 @@ export const File = () => {
       <div className='button-group'>
         <div className='sample'>
           <button type='button' className='btn btn-outline-primary text-nowrap'
-            onClick={() => Updateconfig()}
+            onClick={Updateconfig}
           >
             Update configuration
           </button>
@@ -52,14 +52,14 @@ export const File = () => {
           <button
             type='button'
             className='btn btn-outline-primary  text-nowrap'
-            onClick={() => Updatepem()}
+            onClick={Updatepem}
           >
             Update PME file
           </button>
         </div>
         <div className='sample'>
           <button type='button' className='btn btn-primary'
-            onClick={() => Install()}
+            onClick={Install}
           >
             Install
           </button>
