@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const BASE_URL = 'http://127.0.0.1:5000';
@@ -21,7 +23,7 @@ export async function Populatedata(props) {
     });
   }
   catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 
 }
@@ -36,11 +38,11 @@ export async function Install() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -54,11 +56,11 @@ export async function Start() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -72,11 +74,11 @@ export async function Stop() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -90,11 +92,11 @@ export async function Uninstall() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -108,11 +110,11 @@ export async function Updateconfig() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -126,11 +128,11 @@ export async function Updatepem() {
           .get(`${BASE_URL}/status`)
         return result.data;
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
 }
 
@@ -140,6 +142,6 @@ export async function Status() {
     return response.data;
   }
   catch (err){
-    console.log(err);
+    toast.error(err);
   }
 }
