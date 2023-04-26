@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className='main__container'>
+      <h3 className='title'>Welcome to OpenSearch Scaling Manager</h3>
       <div className='container'>
         <BrowserRouter>
           <Routes>
