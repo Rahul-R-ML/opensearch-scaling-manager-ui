@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import image from "../../assets/upload.jpg";
-import "./Upload.css";
-import axios from "axios";
-import { MoonLoader } from "react-spinners";
+import React, { useEffect, useRef, useState } from 'react';
+import image from '../../assets/upload.jpg';
+import './Upload.css';
+import axios from 'axios';
+import { MoonLoader } from 'react-spinners';
 
 export const UploadFile = () => {
   const [file, setFile] = useState(null);
@@ -16,9 +16,9 @@ export const UploadFile = () => {
   async function uploadFile() {
     try {
       setSpinner(true);
-      await axios.post("http://localhost:8080/upload", file, {
+      await axios.post('http://localhost:8080/upload', file, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       });
       setSpinner(false);
@@ -35,25 +35,27 @@ export const UploadFile = () => {
   };
 
   return (
-    <div>
-      <h3 className="title">Welcome to OpenSearch Scaling Manager</h3>
-      <div className="upload__wrapper">
-        <div className="upload__wrapper__img-container">
+    <div className='body_wrapper'>
+      <h3 className='title body_header'>
+        Welcome to <span className='brand'>OpenSearch Scaling Manager</span>
+      </h3>
+      <div className='upload__wrapper'>
+        <div className='upload__wrapper__img-container'>
           {spinner ? (
             <MoonLoader size={100} />
           ) : (
             <img
-              className="uploading"
+              className='uploading'
               onClick={handleImageClick}
               src={image}
-              alt="abc"
+              alt='abc'
             />
           )}
         </div>
         <input
-          type="file"
+          type='file'
           ref={fileInputRef}
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           onChange={handleFileChange}
         />
         {spinner ? (

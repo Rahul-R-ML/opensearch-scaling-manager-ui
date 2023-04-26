@@ -1,64 +1,81 @@
-import { useState } from "react";
-import "./Populate.css";
+import { useState } from 'react';
+import { validateIp } from '../../../utils/validators';
 
+import './Populate.css';
 export const Populate = ({ closeModal }) => {
+  const [ipError, setIpError] = useState('');
+  const [formData, setFormData] = useState({
+    ip: '',
+    osUsername: '',
+    osPassword: '',
+  });
 
-  const [ipAddress, setIpAddress] = useState("");
-  const [ipError, setIpError] = useState("");
-  const ipPattern = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
-
-  const populate = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
-    let formData={
-      ip: event.target[0].value,
-      name:event.target[1].value,
-      password: event.target[2].value
-    }
-    console.log(formData)
-  }
+    // send API request here
+    console.log(formData);
+  };
 
   return (
-    <div className="populate__overlay">
-      <div className="populate">
-        <p className="title">Populate</p>
-        <div className="populate__form">
-          <form onSubmit={populate}>
-            <div className="form-group text-nowrap">
-              <label className="text-left">Master IP</label>
+    <div className='populate__overlay'>
+      <div className='populate'>
+        <p className='title'>Populate</p>
+        <div className='populate__form'>
+          <form onSubmit={handleFormSubmit}>
+            <div className='form-group text-nowrap'>
+              <label className='text-left'>Master IP</label>
               <input
-                type="text"
-                className="form-control"
+                type='text'
+                className='form-control'
                 required
-                onChange={(e) => setIpAddress(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, ip: e.target.value })
+                }
+                value={formData.ip}
                 onBlur={() => {
-                  if(ipAddress!=''){
-                    if (!ipPattern.test(ipAddress)) {
-                      setIpError("Please enter a valid IP address");
-                    } else {
-                      setIpError(false);
+                  if (formData.ip != '') {
+                    if (!validateIp(formData.ip)) {
+                      return setIpError('Please enter a valid IP address');
                     }
+                    setIpError('');
                   }
                 }}
               />
-              {ipError && <div className="text-danger">{ipError}</div>}
+              {ipError && <div className='text-danger'>{ipError}</div>}
             </div>
-            <div className="form-group text-nowrap">
-              <label className="text-left">OS Username</label>
-              <input type="text" className="form-control" required />
+            <div className='form-group text-nowrap'>
+              <label className='text-left'>OS Username</label>
+              <input
+                onChange={(e) =>
+                  setFormData({ ...formData, osUsername: e.target.value })
+                }
+                value={formData.osUsername}
+                type='text'
+                className='form-control'
+                required
+              />
             </div>
-            <div className="form-group text-nowrap">
-              <label className="text-left">Os Password </label>
-              <input type="password" className="form-control" required />
+            <div className='form-group text-nowrap'>
+              <label className='text-left'>OS Password </label>
+              <input
+                onChange={(e) =>
+                  setFormData({ ...formData, osPassword: e.target.value })
+                }
+                value={formData.osPassword}
+                type='password'
+                className='form-control'
+                required
+              />
             </div>
-            <div className="btn-populate">
+            <div className='btn-populate'>
               <button
-                type="button"
-                className="btn btn-outline-primary"
+                type='button'
+                className='btn btn-outline-primary'
                 onClick={() => closeModal(false)}
               >
                 Cancel
               </button>
-              <button type="submit" className="btn btn-primary">
+              <button type='submit' className='btn btn-primary'>
                 Populate
               </button>
             </div>
