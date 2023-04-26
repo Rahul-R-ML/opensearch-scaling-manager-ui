@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import image from '../../assets/upload.jpg';
-import './Upload.css';
-import axios from 'axios';
-import { MoonLoader } from 'react-spinners';
+import React, { useEffect, useRef, useState } from "react";
+import image from "../../assets/upload.jpg";
+import "./Upload.css";
+import axios from "axios";
+import { MoonLoader } from "react-spinners";
 
 export const UploadFile = () => {
   const [file, setFile] = useState(null);
@@ -16,9 +16,9 @@ export const UploadFile = () => {
   async function uploadFile() {
     try {
       setSpinner(true);
-      await axios.post('http://localhost:8080/upload', file, {
+      await axios.post("http://localhost:8080/upload", file, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       setSpinner(false);
@@ -35,30 +35,33 @@ export const UploadFile = () => {
   };
 
   return (
-    <div className='upload__wrapper'>
-      <div className='upload__wrapper__img-container'>
+    <div>
+      <h3 className="title">Welcome to OpenSearch Scaling Manager</h3>
+      <div className="upload__wrapper">
+        <div className="upload__wrapper__img-container">
+          {spinner ? (
+            <MoonLoader size={100} />
+          ) : (
+            <img
+              className="uploading"
+              onClick={handleImageClick}
+              src={image}
+              alt="abc"
+            />
+          )}
+        </div>
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleFileChange}
+        />
         {spinner ? (
-          <MoonLoader size={100} />
+          <p>Uploading artifact. Please wait.</p>
         ) : (
-          <img
-            className='uploading'
-            onClick={handleImageClick}
-            src={image}
-            alt='abc'
-          />
+          <p>Please Upload the artifacts Zip file</p>
         )}
       </div>
-      <input
-        type='file'
-        ref={fileInputRef}
-        style={{ display: 'none' }}
-        onChange={handleFileChange}
-      />
-      {spinner ? (
-        <p>Uploading artifact. Please wait.</p>
-      ) : (
-        <p>Please Upload the artifacts Zip file</p>
-      )}
     </div>
   );
 };
