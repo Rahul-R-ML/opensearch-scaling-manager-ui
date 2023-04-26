@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { Populate } from './Populate/Populate';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { Install, Uninstall, Start, Stop, Updateconfig, Updatepem } from '../../services/service';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 export const File = () => {
   const modalRef = useRef(null);
@@ -15,7 +17,6 @@ export const File = () => {
   function playpause() {
     setPlayButton(!playButton);
   }
-  function handleUninstall() { }
 
   return (
     <div className='file__wrapper'>
@@ -81,6 +82,7 @@ export const File = () => {
           <div className='modal'></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
