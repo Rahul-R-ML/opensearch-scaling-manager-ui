@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { validateIp } from '../../../utils/validators';
-import { populate } from '../../../services/service';
+import { Populatedata } from '../../../services/service';
 
 import './Populate.css';
 export const Populate = ({ closeModal }) => {
@@ -11,13 +11,13 @@ export const Populate = ({ closeModal }) => {
     osPassword: '',
   });
 
-  const handleFormSubmit = (event) => {
+  async function handleFormSubmit (event){
     event.preventDefault();
     // send API request here
-    const response = populate(formData);
+    const response = await Populatedata(formData);
     console.log(formData);
   };
-
+  
   return (
     <div className='populate__overlay'>
       <div className='populate'>
