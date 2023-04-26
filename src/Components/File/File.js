@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { Populate } from './Populate/Populate';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { Install, Uninstall, Start, Stop, Updateconfig, Updatepem } from '../../services/service';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 export const File = () => {
   const modalRef = useRef(null);
@@ -15,13 +17,12 @@ export const File = () => {
   function playpause() {
     setPlayButton(!playButton);
   }
-  function handleUninstall() { }
 
   return (
     <div className='file__wrapper'>
       <div className='file__wrapper-topbar'>
         <p>&#60;&#60;FileName&#62;&#62;</p>
-        <div onClick={handleUninstall}>
+        <div onClick={Uninstall}>
           <DeleteIcon className='file__wrapper_delete' />
         </div>
       </div>
@@ -44,7 +45,7 @@ export const File = () => {
       <div className='button-group'>
         <div className='sample'>
           <button type='button' className='btn btn-outline-primary text-nowrap'
-            onClick={() => Updateconfig()}
+            onClick={Updateconfig}
           >
             Update configuration
           </button>
@@ -52,14 +53,14 @@ export const File = () => {
           <button
             type='button'
             className='btn btn-outline-primary  text-nowrap'
-            onClick={() => Updatepem()}
+            onClick={Updatepem}
           >
             Update PME file
           </button>
         </div>
         <div className='sample'>
           <button type='button' className='btn btn-primary'
-            onClick={() => Install()}
+            onClick={Install}
           >
             Install
           </button>
@@ -81,6 +82,7 @@ export const File = () => {
           <div className='modal'></div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
