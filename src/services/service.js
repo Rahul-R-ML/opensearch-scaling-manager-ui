@@ -1,209 +1,145 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
+
 export const BASE_URL = 'http://127.0.0.1:5000';
 
-function Upload() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
-      .get(`${BASE_URL}/upload`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+export async function Upload(props) {
+  await axios.post(`${BASE_URL}/upload`, props.file, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 }
 
-function Populate() {
-  const [post, setPost] = React.useState('');
+export async function populate(props) {
+  try {
+    await axios.post(`${BASE_URL}/populate`, props.formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+  catch (err) {
+    console.log(err);
+  }
 
-  React.useEffect(() => {
-    axios
-      .get(`${BASE_URL}/populate`)
-      .then((response) => {
-        setPost(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-  return (
-    <div>
-      <h1>{post}</h1>
-    </div>
-  );
 }
 
-function Install() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Install() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/install`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Start() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Start() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/start`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Stop() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Stop() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/stop`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Uninstall() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Uninstall() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/uninstall`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Updateconfig() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Updateconfig() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/update_config`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Updatepem() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
+export async function Updatepem() {
+  try {
+    const response = await axios
       .get(`${BASE_URL}/update_pem`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+    return async function Status() {
+      try {
+        const result = await axios
+          .get(`${BASE_URL}/status`)
+        return result.data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function Status() {
-  const [term, setTerm] = React.useState('');
-
-  React.useEffect(() => {
-    axios
-      .get(`${BASE_URL}/status`)
-      .then((response) => {
-        setTerm(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>{term}</h1>
-    </div>
-  );
+export async function Status() {
+  try{
+    const response = await axios.get(`${BASE_URL}/status`)
+    return response.data;
+  }
+  catch (err){
+    console.log(err);
+  }
 }
-
-function Service() {
-  return (
-    <div>
-      <Install />
-      <Populate />
-      <Upload />
-      <Start />
-      <Stop />
-      <Uninstall />
-      <Updateconfig />
-      <Updatepem />
-      <Status />
-    </div>
-  );
-}
-export default Service;

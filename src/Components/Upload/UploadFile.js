@@ -3,6 +3,7 @@ import image from '../../assets/upload.jpg';
 import './Upload.css';
 import axios from 'axios';
 import { MoonLoader } from 'react-spinners';
+import { Upload } from '../../services/service';
 
 export const UploadFile = () => {
   const [file, setFile] = useState(null);
@@ -16,11 +17,7 @@ export const UploadFile = () => {
   async function uploadFile() {
     try {
       setSpinner(true);
-      await axios.post('http://localhost:8080/upload', file, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await Upload(file);
       setSpinner(false);
       // navigate to next page on success
     } catch (err) {
