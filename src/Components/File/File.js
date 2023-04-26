@@ -5,17 +5,17 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { Populate } from './Populate/Populate';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import { Install, Uninstall, Start, Stop, Updateconfig, Updatepem } from '../../services/service';
 
 export const File = () => {
   const modalRef = useRef(null);
-
   const [openModal, setOpenModal] = useState(false);
   const [playButton, setPlayButton] = useState(true);
 
   function playpause() {
     setPlayButton(!playButton);
   }
-  function handleUninstall() {}
+  function handleUninstall() { }
 
   return (
     <div className='file__wrapper'>
@@ -43,19 +43,24 @@ export const File = () => {
       </div>
       <div className='button-group'>
         <div className='sample'>
-          <button type='button' className='btn btn-outline-primary text-nowrap'>
+          <button type='button' className='btn btn-outline-primary text-nowrap'
+            onClick={() => Updateconfig()}
+          >
             Update configuration
           </button>
 
           <button
             type='button'
             className='btn btn-outline-primary  text-nowrap'
+            onClick={() => Updatepem()}
           >
             Update PME file
           </button>
         </div>
         <div className='sample'>
-          <button type='button' className='btn btn-primary'>
+          <button type='button' className='btn btn-primary'
+            onClick={() => Install()}
+          >
             Install
           </button>
 

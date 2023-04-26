@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { validateIp } from '../../../utils/validators';
+import { populate } from '../../../services/service';
 
 import './Populate.css';
 export const Populate = ({ closeModal }) => {
@@ -13,6 +14,7 @@ export const Populate = ({ closeModal }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // send API request here
+    const response = populate(formData);
     console.log(formData);
   };
 
