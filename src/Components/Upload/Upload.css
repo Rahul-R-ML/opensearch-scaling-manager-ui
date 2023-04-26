@@ -1,3 +1,20 @@
+.body_wrapper {
+  position: relative;
+}
+.body_header {
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  font-weight: 280;
+  letter-spacing: 1.2px;
+}
+.brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 .upload__wrapper {
   display: flex;
   flex-direction: column;

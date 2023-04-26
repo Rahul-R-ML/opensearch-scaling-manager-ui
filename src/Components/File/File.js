@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import './File.css';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { Populate } from './Populate/Populate';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
 
 export const File = () => {
   const modalRef = useRef(null);

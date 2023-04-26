@@ -35,30 +35,35 @@ export const UploadFile = () => {
   };
 
   return (
-    <div className='upload__wrapper'>
-      <div className='upload__wrapper__img-container'>
+    <div className='body_wrapper'>
+      <h3 className='title body_header'>
+        Welcome to <span className='brand'>OpenSearch Scaling Manager</span>
+      </h3>
+      <div className='upload__wrapper'>
+        <div className='upload__wrapper__img-container'>
+          {spinner ? (
+            <MoonLoader size={100} />
+          ) : (
+            <img
+              className='uploading'
+              onClick={handleImageClick}
+              src={image}
+              alt='abc'
+            />
+          )}
+        </div>
+        <input
+          type='file'
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+          onChange={handleFileChange}
+        />
         {spinner ? (
-          <MoonLoader size={100} />
+          <p>Uploading artifact. Please wait.</p>
         ) : (
-          <img
-            className='uploading'
-            onClick={handleImageClick}
-            src={image}
-            alt='abc'
-          />
+          <p>Please Upload the artifacts Zip file</p>
         )}
       </div>
-      <input
-        type='file'
-        ref={fileInputRef}
-        style={{ display: 'none' }}
-        onChange={handleFileChange}
-      />
-      {spinner ? (
-        <p>Uploading artifact. Please wait.</p>
-      ) : (
-        <p>Please Upload the artifacts Zip file</p>
-      )}
     </div>
   );
 };
