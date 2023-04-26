@@ -37,7 +37,7 @@ export const UploadFile = () => {
   return (
     <div className='upload__wrapper'>
       <div className='upload__wrapper__img-container'>
-        {false ? (
+        {spinner ? (
           <MoonLoader size={100} />
         ) : (
           <img
@@ -54,7 +54,7 @@ export const UploadFile = () => {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      {false ? (
+      {spinner ? (
         <p>Uploading artifact. Please wait.</p>
       ) : (
         <p>Please Upload the artifacts Zip file</p>
