@@ -2,15 +2,20 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// export const BASE_URL = 'http://127.0.0.1:5000';
+export const BASE_URL =
+  'http://ec2-34-209-116-102.us-west-2.compute.amazonaws.com:5000';
 
-export const BASE_URL = 'http://127.0.0.1:5000';
-
-export async function Upload(props) {
-  await axios.post(`${BASE_URL}/upload`, props.file, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+export async function Upload(formData) {
+  try {
+    await axios.post(`${BASE_URL}/upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  } catch (err) {
+    toast.error(err.message, { position: 'top-center' });
+  }
 }
 
 export async function Populatedata(props) {
@@ -20,127 +25,75 @@ export async function Populatedata(props) {
         'Content-Type': 'application/json',
       },
     });
+  } catch (err) {
+    toast.error(err.message, { position: 'top-center' });
   }
-  catch (err) {
-    toast.error(err.message, {position: "top-center"});
-  }
-
 }
 
 export async function Install() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/install`)
-    return async function Status() {
-      try {
-        const result = await axios
-          .get(`${BASE_URL}/status`)
-        return result.data;
-      } catch (err) {
-        toast.error(err.message, {position: "top-center"});
-      }
-    };
+    toast.promise(axios.get(`${BASE_URL}/install`), {
+      pending: 'Installing...',
+      success: 'Installed Successfully',
+      error: 'Error while installing',
+    });
   } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Start() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/start`)
-    return async function Status() {
-      try {
-        const result = await axios
-          .get(`${BASE_URL}/status`)
-        return result.data;
-      } catch (err) {
-        toast.error(err.message, {position: "top-center"});
-      }
-    };
+    toast.success('started');
+    const response = await axios.get(`${BASE_URL}/start`);
+    return response.data;
   } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Stop() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/stop`)
-    return async function Status() {
-      try {
-        const result = await axios
-          .get(`${BASE_URL}/status`)
-        return result.data;
-      } catch (err) {
-        toast.error(err.message, {position: "top-center"});
-      }
-    };
+    toast.success('stopped');
+    const response = await axios.get(`${BASE_URL}/stop`);
+    return response.data;
   } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Uninstall() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/uninstall`)
-    return async function Status() {
-      try {
-        const result = await axios
-          .get(`${BASE_URL}/status`)
-        return result.data;
-      } catch (err) {
-        toast.error(err.message, {position: "top-center"});
-      }
-    };
+    const response = await axios.get(`${BASE_URL}/uninstall`);
+    return response.data;
   } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Updateconfig() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/update_config`)
-      return async function Status() {
-        try {
-          const result = await axios
-            .get(`${BASE_URL}/status`)
-          return result.data;
-        } catch (err) {
-          toast.error(err.message, {position: "top-center"});
-        }
-      };
-    } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    const response = await axios.get(`${BASE_URL}/update_config`);
+    return response.data;
+  } catch (err) {
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Updatepem() {
   try {
-    const response = await axios
-      .get(`${BASE_URL}/update_pem`)
-    return async function Status() {
-      try {
-        const result = await axios
-          .get(`${BASE_URL}/status`)
-        return result.data;
-      } catch (err) {
-        toast.error(err.message, {position: "top-center"});
-      }
-    };
+    const response = await axios.get(`${BASE_URL}/update_pem`);
+    return response.data;
   } catch (err) {
-    toast.error(err.message, {position: "top-center"});
+    toast.error(err.message, { position: 'top-center' });
   }
 }
 
 export async function Status() {
-  try{
-    const response = await axios.get(`${BASE_URL}/status`)
+  try {
+    const response = await axios.get(`${BASE_URL}/status`);
     return response.data;
-  }
-  catch (err){
-    toast.error(err.message, {position: "top-center"});
+  } catch (err) {
+    toast.error(err.message, { position: 'top-center' });
   }
 }
