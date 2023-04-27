@@ -10,7 +10,7 @@ export async function Upload(formData) {
   try {
     await axios.post(`${BASE_URL}/upload`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/zip',
       },
     });
     return { status: 'success' };
