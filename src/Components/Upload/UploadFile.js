@@ -1,34 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react';
 import image from '../../assets/upload.jpg';
 import './Upload.css';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { MoonLoader } from 'react-spinners';
 import { Upload } from '../../services/service';
 
 export const UploadFile = () => {
-  const [file, setFile] = useState(null);
   const [spinner, setSpinner] = useState(false);
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   function handleImageClick() {
     fileInputRef.current.click();
   }
 
-  async function uploadFile() {
-    try {
-      setSpinner(true);
-      const response = await Upload(file);
-      setSpinner(false);
-      // navigate to next page on success
-    } catch (err) {
-      console.log(err);
-      setSpinner(false);
-    }
+  function uploadFile(formData) {
+    setSpinner(true);
+    Upload(formData)
+      .then((response) => {
+        if (response) navigate('/file');
+      })
+      .finally(() => {
+        setSpinner(false);
+      });
   }
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-    uploadFile();
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    // debug mode
+    // for (var key of formData.entries()) {
+    //   console.log(key[0] + ', ' + key[1]);
+    // }
+    uploadFile(formData);
   };
 
   return (

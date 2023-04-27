@@ -5,17 +5,29 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { Populate } from './Populate/Populate';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import { Install, Uninstall, Start, Stop, Updateconfig, Updatepem } from '../../services/service';
+import {
+  Install,
+  Uninstall,
+  Start,
+  Stop,
+  Updateconfig,
+  Updatepem,
+} from '../../services/service';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 export const File = () => {
   const modalRef = useRef(null);
   const [openModal, setOpenModal] = useState(false);
   const [playButton, setPlayButton] = useState(true);
 
-  function playpause() {
-    setPlayButton(!playButton);
+  async function playOpenSearch() {
+    setPlayButton(false);
+    await Start();
+  }
+  async function pauseOpenSearch() {
+    setPlayButton(true);
+    await Stop();
   }
 
   return (
@@ -29,12 +41,12 @@ export const File = () => {
       <div className='file__wrapper-play'>
         {playButton ? (
           <PlayCircleIcon
-            onClick={playpause}
+            onClick={playOpenSearch}
             style={{ fontSize: 200, color: 'green' }}
           />
         ) : (
           <StopCircleIcon
-            onClick={playpause}
+            onClick={pauseOpenSearch}
             style={{ fontSize: 200, color: 'red' }}
           />
         )}
@@ -44,7 +56,9 @@ export const File = () => {
       </div>
       <div className='button-group'>
         <div className='sample'>
-          <button type='button' className='btn btn-outline-primary text-nowrap'
+          <button
+            type='button'
+            className='btn btn-outline-primary text-nowrap'
             onClick={Updateconfig}
           >
             Update configuration
@@ -59,9 +73,7 @@ export const File = () => {
           </button>
         </div>
         <div className='sample'>
-          <button type='button' className='btn btn-primary'
-            onClick={Install}
-          >
+          <button type='button' className='btn btn-primary' onClick={Install}>
             Install
           </button>
 
