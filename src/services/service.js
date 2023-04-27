@@ -13,6 +13,7 @@ export async function Upload(formData) {
         'Content-Type': 'multipart/form-data',
       },
     });
+    return { status: 'success' };
   } catch (err) {
     toast.error(err.message, { position: 'top-center' });
   }
@@ -65,6 +66,7 @@ export async function Stop() {
 export async function Uninstall() {
   try {
     const response = await axios.get(`${BASE_URL}/uninstall`);
+    toast.success('Uninstalled Successfully');
     return response.data;
   } catch (err) {
     toast.error(err.message, { position: 'top-center' });
